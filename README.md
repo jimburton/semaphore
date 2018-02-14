@@ -31,4 +31,12 @@ the amount of work the student will be doing. It also needs a constructor which 
 the `Library` instance and `long`. Since neither field will be changed after it is first set, mark
 them as `final`. Since `Student` is a subclass of `Thread` it needs a `run` method. This method
 should ask the librarian for a desk ,then sleep for the right amount of time (typical!), then let
-the librarian know that the desk is free again.
+the librarian know that the desk is free again. Use the logger defined in the `Main` class to log
+what the student is doing. For example,
+
+    Main.LOG.info(String.format("Student %s would like to work", getName()));
+    librarian.requestDesk();
+    //etc
+
+Run the `main` method in `CI346.Main` to create a librarian in charge of 3 desks, and 10 students
+who need to use them.
