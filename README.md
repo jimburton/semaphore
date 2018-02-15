@@ -26,7 +26,7 @@ of students at work and call `notify` to wake up the waiting students.
 The `releaseDesk` method should call `wait` if no students are working, then decrement the number
 of students at work and call `notify` to wake up the waiting students.
 
-The `Student` class needs two fields, an instance of `Library` and a `long` representing
+The `Student` class needs two fields, an instance of `Librarian` and a `long` representing
 the amount of work the student will be doing. It also needs a constructor which accepts and sets 
 the `Library` instance and `long`. Since neither field will be changed after it is first set, mark
 them as `final`. Since `Student` is a subclass of `Thread` it needs a `run` method. This method
@@ -40,3 +40,5 @@ what the student is doing. For example,
 
 Run the `main` method in `CI346.Main` to create a librarian in charge of 3 desks, and 10 students
 who need to use them.
+
+What changes would you make to this application if you were to use Java's `ExecutorService` instead of our home-grown semaphore? What are the advantages and disadvantages of doing so?
