@@ -1,7 +1,7 @@
-package CI346;
+package CI646;
 
-import CI346.semaphore.Librarian;
-import CI346.semaphore.Student;
+import CI646.semaphore.Librarian;
+import CI646.semaphore.Student;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Logger;
