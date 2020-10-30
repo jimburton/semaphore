@@ -12,7 +12,7 @@ the student to use it. If all the desks are busy, the student waits. When a stud
 work, they leave and the librarian notifies one of the waiting students that they can use the desk
 which is now free.
 
-Implement this scenario in the package `CI346.semaphore`. The `Librarian` class should contain two 
+Implement this scenario in the package `CI646.semaphore`. The `Librarian` class should contain two 
 fields, `numDesks` (the total number of desks in the library) and `numStudents` (the number of 
 students currently at work in the library). The constructor should take a long parameter, which
 is the number of desks. The class should include methods with these signatures:
@@ -38,5 +38,5 @@ what the student is doing. For example,
     librarian.requestDesk();
     //etc
 
-Run the `main` method in `CI346.Main` to create a librarian in charge of 3 desks, and 10 students
+Run the `main` method in `CI646.Main` to create a librarian in charge of 3 desks, and 10 students
 who need to use them.

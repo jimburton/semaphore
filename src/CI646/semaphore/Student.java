@@ -1,6 +1,6 @@
-package CI346.semaphore;
+package CI646.semaphore;
 
-import CI346.Main;
+import CI646.Main;
 
 public class Student extends Thread {
 
