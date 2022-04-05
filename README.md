@@ -12,16 +12,18 @@ the student to use it. If all the desks are busy, the student waits. When a stud
 work, they leave and the librarian notifies one of the waiting students that they can use the desk
 which is now free.
 
-Implement this scenario in the package `CI646.semaphore`. The `Librarian` class should contain two 
-fields, `numDesks` (the total number of desks in the library) and `numStudents` (the number of 
-students currently at work in the library). The constructor should take a long parameter, which
-is the number of desks. The class should include methods with these signatures:
+Implement this scenario in the package `CI646.semaphore`. 
+
+In the `Librarian` class, add two `int` fields: `numDesks` (the total number of desks in the library) and 
+`numStudents` (the number of students currently at work in the library). The constructor should take a `long` parameter, 
+which is the number of desks. The class should include methods with these signatures:
 
 + `public synchronized void requestDesk() throws InterruptedException` 
 + `public synchronized void releaseDesk() throws InterruptedException`
 
-The `requestDesk` method should call `wait` if all of the desks are busy, then increment the number
-of students at work and call `notify` to wake up the waiting students.
+The `requestDesk` method should call `wait` if all of the desks are busy (i.e. `numStudents` is equal to `numDesks`) 
+then (presuming the thread this code is running in has been woken up because this is no longer true) increment the 
+number of students at work and call `notify` to wake up the waiting students.
 
 The `releaseDesk` method should call `wait` if no students are working, then decrement the number
 of students at work and call `notify` to wake up the waiting students.
@@ -31,8 +33,8 @@ the amount of work the student will be doing. It also needs a constructor which 
 the `Librarian` instance and `long`. Since neither field will be changed after it is first set, mark
 them as `final`. Since `Student` is a subclass of `Thread` it needs a `run` method. This method
 should ask the librarian for a desk, then sleep for the right amount of time (typical!), then let
-the librarian know that the desk is free again. Use the logger defined in the `Main` class to log
-what the student is doing. For example,
+the librarian know that the desk is free again by asking it to release the desk. 
+Use the logger defined in the `Main` class to log what the student is doing. For example,
 
     Main.LOG.info(String.format("Student %s would like to work", getName()));
     librarian.requestDesk();
@@ -41,4 +43,5 @@ what the student is doing. For example,
 Run the `main` method in `CI646.Main` to create a librarian in charge of 3 desks, and 10 students
 who need to use them.
 
-What changes would you make to this application if you were to use Java's `ExecutorService` instead of our home-grown semaphore? What are the advantages and disadvantages of doing so?
+What changes would you make to this application if you were to use Java's `ExecutorService` instead of our home-grown 
+semaphore? What are the advantages and disadvantages of doing so?
